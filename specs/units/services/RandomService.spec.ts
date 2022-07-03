@@ -11,7 +11,7 @@ describe("RandomService", () => {
     it('deve-se obter x palavras aleatórias, sendo x um numero inserido pelo usuario', () => {
 
         const words = _service.makeid(10)
-        const result = words.split(' ').length
+        const result = words.split(' ').length - 1
         expect(result).toBe(10)
 
 
@@ -20,7 +20,7 @@ describe("RandomService", () => {
     it('deve-se obter x palavras aleatórias, sendo x um numero inserido pelo usuario', () => {
 
         const words = _service.makeid(2)
-        const result = words.split(' ').length
+        const result = words.split(' ').length - 1
         expect(result).toHaveLength(2)
 
 
