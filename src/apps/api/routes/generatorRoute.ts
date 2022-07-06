@@ -6,6 +6,6 @@ const _controller = new GeneratorController();
 
 
 
-router.get("/generator", _controller.gerarCPF);
+router.get("/gerarcpf", _controller.gerarCPF);
 
 export = router;
