@@ -2,28 +2,32 @@ export class GerarService {
   constructor() { }
 
   gerarCPF = () => {
-    let newCpf: Array<number> = [];
-    let digito1: number = 0;
-    let digito2: number = 0;
+    let newCpf: Array<number> = []
+    let verificador1: number = 0
+    let verificador2: number = 0
+    let cpfFinal: number
 
-    console.log(newCpf)
-
-    for (let i = 0; i < 9; i++) {
-      newCpf[i] = Math.floor(Math.random() * 10)
-      digito1 += newCpf[i] * (10 - i)
-      digito2 += newCpf[i] * (11 - i)
+    for (let index = 0; index < 9; index++) {
+      newCpf[index] = Math.floor(Math.random() * 10)
+      verificador1 += newCpf[index] * (index + 1)
+      verificador2 += newCpf[index] * index
     }
 
-    let dig1 = digito1 % 11
-    if (dig1 === 10 || dig1 === 11) { dig1 = 0 }
-    newCpf[9] = 10 - dig1
+    //digito 1
+    let digito1 = verificador1 % 11
+    if (digito1 === 10) { digito1 = 0 }
+    newCpf[9] = digito1
 
-    digito2 += newCpf[9] * 2
-    let dig2 = digito2 * 10 % 11
-    if (dig2 === 10 || dig2 === 11) { dig2 = 0 }
-    newCpf[10] = 11 - dig2
+    //digito2
+    verificador2 += newCpf[9] * 9
+    let digito2 = verificador2 % 11
+    if (digito2 === 10) { digito2 = 0 }
+    newCpf[10] = digito2
 
-    return newCpf;
+
+    cpfFinal = Number(newCpf.join(''))
+    return cpfFinal
+
   };
 
 
