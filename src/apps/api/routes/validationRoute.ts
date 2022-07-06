@@ -6,6 +6,6 @@ const _controller = new ValidationController();
 
 
 
-router.get("/order", _controller.validarCPF);
+router.get("/validation", _controller.validarCPF);
 
 export = router;
